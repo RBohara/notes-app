@@ -3,8 +3,6 @@ const path = require("path");
 
 const cors = require("cors");
 
-app.use(cors());
-
 const connectDB = require("./db/connect");
 const authenticateUser = require("./middleware/authentication");
 
@@ -15,6 +13,8 @@ const journalRouter = require("./routes/journalRoute");
 const express = require("express");
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 
