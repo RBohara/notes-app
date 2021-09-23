@@ -1,6 +1,10 @@
 require("dotenv").config();
 const path = require("path");
 
+const cors = require("cors");
+
+app.use(cors());
+
 const connectDB = require("./db/connect");
 const authenticateUser = require("./middleware/authentication");
 
