@@ -8,7 +8,7 @@ const authenticateUser = require("./middleware/authUser");
 
 //routers
 const authRouter = require("./routes/authRoute");
-const journalRouter = require("./routes/journalRoute");
+const noteRouter = require("./routes/noteRoute");
 
 const express = require("express");
 
@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === "production") {
 
 // routes
 app.use("/api/auth", authRouter);
-app.use("/api/journals", authenticateUser, journalRouter);
+app.use("/api/notes", authenticateUser, noteRouter);
 
 const PORT = process.env.PORT || 5000;
 
