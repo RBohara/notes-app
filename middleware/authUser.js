@@ -15,7 +15,11 @@ const authUser = (req, res, next) => {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
 
     // attach user to the journal routes
-    req.user = { userId: payload.userId, name: payload.name };
+    req.user = {
+      userId: payload.userId,
+      name: payload.name,
+      email: payload.email,
+    };
     next();
   } catch (error) {
     throw new Error("Authentication failed");

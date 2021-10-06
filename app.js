@@ -4,10 +4,10 @@ const path = require("path");
 const cors = require("cors");
 
 const connectDB = require("./db/connect");
-const authenticateUser = require("./middleware/authentication");
+const authenticateUser = require("./middleware/authUser");
 
 //routers
-const userRouter = require("./routes/userRoute");
+const authRouter = require("./routes/authRoute");
 const journalRouter = require("./routes/journalRoute");
 
 const express = require("express");
@@ -17,8 +17,7 @@ const app = express();
 app.use(cors());
 
 app.use(express.json());
-console.log(path.resolve(__dirname, "./client/build"));
-console.log(path.resolve(__dirname, "./client/build", "index.html"));
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.resolve(__dirname, "./client/build")));
 
@@ -32,7 +31,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // routes
-app.use("/api/users", userRouter);
+app.use("/api/auth", authRouter);
 app.use("/api/journals", authenticateUser, journalRouter);
 
 const PORT = process.env.PORT || 5000;

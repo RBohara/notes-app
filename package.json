@@ -5,7 +5,7 @@
     "node": "14.13.0",
     "npm": "6.14.8"
   },
-  "description": "",
+  "description": "Notes App ",
   "main": "index.js",
   "scripts": {
     "start": "node app",
@@ -15,8 +15,8 @@
     "heroku-postbuild": "npm install --prefix client && npm run build"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Rahul Bohara",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "concurrently": "^6.2.1",
